@@ -115,10 +115,24 @@ public class BST {
      * Inserts the given integer value to the tree
      * if it does not already exist. Modifies the
      * root instance variable to be the root of the new modified tree.
-     * @param val The value ot insert
+     * @param val The value to insert
      */
     public void insert(int val) {
-        // TODO: Complete insert
+        root = insertHelper(root, val);
+    }
+
+    private BSTNode insertHelper(BSTNode node, int val) {
+        if (node == null) {
+            return new BSTNode(val);
+        }
+        
+        if (val < node.getVal()) {
+            node.setLeft(insertHelper(node.getLeft(), val));
+        } else if (val > node.getVal()) {
+            node.setRight(insertHelper(node.getRight(), val));
+        }
+        
+        return node;
     }
 
     /**
