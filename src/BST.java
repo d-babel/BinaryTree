@@ -47,8 +47,20 @@ public class BST {
      * @return true if val is in the tree, false otherwise
      */
     public boolean search(int val) {
-        // TODO: Complete the search function
-        return false;
+        return searchHelper(root, val);
+    }
+
+    private boolean searchHelper(BSTNode node, int val) {
+        if (node == null) {
+            return false;
+        }
+        if (node.getVal() == val) {
+            return true;
+        }
+        if (val < node.getVal()) {
+            return searchHelper(node.getLeft(), val);
+        }
+        return searchHelper(node.getRight(), val);
     }
 
     /**
