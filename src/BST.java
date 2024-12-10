@@ -67,24 +67,48 @@ public class BST {
      * @return ArrayList of BSTNodes in inorder
      */
     public ArrayList<BSTNode> getInorder() {
-        // TODO: Complete inorder traversal
-        return null;
+        ArrayList<BSTNode> result = new ArrayList<>();
+        inorderHelper(root, result);
+        return result;
+    }
+
+    private void inorderHelper(BSTNode node, ArrayList<BSTNode> result) {
+        if (node == null) return;
+        inorderHelper(node.getLeft(), result);
+        result.add(node);
+        inorderHelper(node.getRight(), result);
     }
 
     /**
      * @return ArrayList of BSTNodes in preorder
      */
     public ArrayList<BSTNode> getPreorder() {
-        // TODO: Complete preorder traversal
-        return null;
+        ArrayList<BSTNode> result = new ArrayList<>();
+        preorderHelper(root, result);
+        return result;
+    }
+
+    private void preorderHelper(BSTNode node, ArrayList<BSTNode> result) {
+        if (node == null) return;
+        result.add(node);
+        preorderHelper(node.getLeft(), result);
+        preorderHelper(node.getRight(), result);
     }
 
     /**
      * @return ArrayList of BSTNodes in postorder
      */
     public ArrayList<BSTNode> getPostorder() {
-        // TODO: Complete postorder traversal
-        return null;
+        ArrayList<BSTNode> result = new ArrayList<>();
+        postorderHelper(root, result);
+        return result;
+    }
+
+    private void postorderHelper(BSTNode node, ArrayList<BSTNode> result) {
+        if (node == null) return;
+        postorderHelper(node.getLeft(), result);
+        postorderHelper(node.getRight(), result);
+        result.add(node);
     }
 
     /**
