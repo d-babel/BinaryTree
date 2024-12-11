@@ -50,6 +50,7 @@ public class BST {
         return searchHelper(root, val);
     }
 
+    // Recursively searches for a value in the BST
     private boolean searchHelper(BSTNode node, int val) {
         if (node == null) {
             return false;
@@ -72,6 +73,7 @@ public class BST {
         return result;
     }
 
+    // Recursively performs inorder traversal (Left -> Root -> Right)
     private void inorderHelper(BSTNode node, ArrayList<BSTNode> result) {
         if (node == null) return;
         inorderHelper(node.getLeft(), result);
@@ -88,6 +90,7 @@ public class BST {
         return result;
     }
 
+    // Recursively performs preorder traversal (Root -> Left -> Right)
     private void preorderHelper(BSTNode node, ArrayList<BSTNode> result) {
         if (node == null) return;
         result.add(node);
@@ -104,6 +107,7 @@ public class BST {
         return result;
     }
 
+    // Recursively performs postorder traversal (Left -> Right -> Root)
     private void postorderHelper(BSTNode node, ArrayList<BSTNode> result) {
         if (node == null) return;
         postorderHelper(node.getLeft(), result);
@@ -121,6 +125,7 @@ public class BST {
         root = insertHelper(root, val);
     }
 
+    // Recursively inserts a value into the BST maintaining order
     private BSTNode insertHelper(BSTNode node, int val) {
         if (node == null) {
             return new BSTNode(val);
@@ -144,6 +149,7 @@ public class BST {
         return isValidBSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
+    // Recursively validates BST property using min/max bounds
     private boolean isValidBSTHelper(BSTNode node, int min, int max) {
         if (node == null) {
             return true;
