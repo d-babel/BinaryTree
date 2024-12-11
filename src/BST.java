@@ -141,8 +141,20 @@ public class BST {
      * @return true if valid false otherwise
      */
     public boolean isValidBST() {
-        // TODO: Optional Challenge!
-        return false;
+        return isValidBSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isValidBSTHelper(BSTNode node, int min, int max) {
+        if (node == null) {
+            return true;
+        }
+        
+        if (node.getVal() <= min || node.getVal() >= max) {
+            return false;
+        }
+        
+        return isValidBSTHelper(node.getLeft(), min, node.getVal()) &&
+               isValidBSTHelper(node.getRight(), node.getVal(), max);
     }
 
     public static void main(String[] args) {
